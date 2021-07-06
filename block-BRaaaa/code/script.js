@@ -1,47 +1,56 @@
-let moviesArr = [{
-    name:"kgf",
-    watched:false
-},]
-
 let input = document.querySelector('#movie');
-let root = document.querySelector('.root');
+let rootElm = document.querySelector('.movies__list');
 
-function createUI(){
-    root.innerHTML = '';
-    moviesArr.forEach((m) => {
-    let div = document.createElement('div');
-    div.classList.add('.movie-list');
-    let checkbox = document.createElement('input')
-    checkbox.type = 'checkbox';
-    checkbox.checked = m.watched;
-    checkbox.addEventListener('click',handleCheck)
-    function handleCheck(event){
+
+let allMovies = [{
+    name:"Inception",
+    watched: false
+},
+{
+    name:"kgf",
+    watched: true
+},
+]
+
+input.addEventListener('keyup',handlekey)
+function handlekey(event){
+    if(event.keyCode === 13){
+        allMovies.push({                         // whenever change data createUI called
+            name:event.target.value,
+            watched:false
+        });
+
+        event.target.value = '';
+        createMovieUI(allMovies,rootElm);
+    }
+}
+
+function handleChange(event){
+    let id = event.target.id;
+
+    allMovies[id].watched = !allMovies[id];
+    createMovieUI(allMovies,rootElm);
+}
+
+function createMovieUI(data,root){
+      root.innerHTML = '';
+      data.forEach((movie,i) => {
+        let li = document.createElement('li');
+        let button = document.createElement('button');
         
-    }
-    let h3 = document.createElement('h3');
-    h3.innerText = m.name;
-    let h4 = document.createElement('h4');
-    if(m.watched){
-        h4.innerText = 'watched';
-    } else{
-        h4.innerText = "not watched";
-    }
-    div.append(checkbox,h3,h4);
-    root.append(div);
+        button.id = i;
+        button.innerText = movie.watched ? "watched" : "to watch";
+        button.addEventListener('click',handleChange)
+        let label = document.createElement('label');
+        label.for = i;
+        label.innerText = movie.name;
+        li.append(label,button)
+
+        rootElm.append(li)
     })
 }
 
-function handlekey(event){
-    event.preventDefault();
-    console.log(event.target.value);
-    let data = {
-        name:event.target.value,
-        watched:false
-    }
-
-    moviesArr.push(data);
-    createUI();
-}
+createMovieUI(allMovies,rootElm);
 
 
-input.addEventListener('keyup',handlekey)
+
