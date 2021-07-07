@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container flex">
+        <h2>Movie App</h2>
+    </div>
+    <section class="sec-padding">
+        <div class="container card">
+        <h1>Movie List</h1>
+        <div class="flex center">
+            <input type="text" name="movie" id="movie" placeholder="Enter movie">
+        </div>
+        <div class="root"></div>
+       </div>
+        </section>
+        <script
+  crossorigin
+  src="https://unpkg.com/react@17/umd/react.development.js"
+></script>
+<script
+  crossorigin
+  src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+    let allMovies = [
+    {
+        name:"Inception",
+        watched:"false"
+    },
+    {
+        name:"kgf",
+        watched:"false"
+    }
+]
+
+let input = document.querySelector('#movie');
+let root = document.querySelector('.root');
+
+let elem = React.createElement;
+
+function createUI(){
+    // root.innerHTML = '';
+    let newArr = allMovies.map((movie) => {
+    let div = elem('div',{className:"movie-list"}, elem('input',{type:'checkbox',checked:movie.watched}),elem('h3',{},movie.name),elem('h4',{}, movie.watched ? 'watched' : 'notwatched'))
+    
+    return (
+        <div className = "movie-list">
+            <input type = "checkbox" checked= {movie.watched}/>
+            <h3>{movie.name}</h3>
+            <h4>{movie.watched ? 'watched' : 'towatch'}</h4>
+            </div>
+    );
+    // div.classList.add('movie-list');
+    // let input = document.createElement('input');
+    // input.type = 'checkbox';
+    // input.checked = movie.watched;
+    // input.addEventListener('click', handleClick)
+    // function handleClick(event){
+    //     if(event.target.checked){
+    //         movie.watched = 'true'
+    //     } else{
+    //         movie.watched = 'false'
+    //     }
+    // }
+    // let h3 = document.createElement('h3');
+    // h3.innerText = movie.name;
+    // let h4 = document.createElement('h4');
+    // if (movie.watched){
+    //     h4.innerText = 'watched'
+    // } else{
+    //     h4.innertext = 'notwatched'
+    // }
+
+    // div.append(input,h3,h4);
+   
+    })
+
+    ReactDOM.render(newArr,root)
+}
+
+function handleKey(event){
+    event.preventDefault();
+    if(event.keyCode === 13){
+        console.log(event.target.value);
+        let data = {
+            name: event.target.value,
+            watched: false
+        }
+
+        allMovies.push(data);
+        createUI();
+    }
+}
+
+input.addEventListener('keyup',handleKey);
+createUI();
+</script>
+</body>
+</html>
