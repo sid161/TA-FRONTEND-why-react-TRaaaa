@@ -31,7 +31,7 @@ let root = document.querySelector('#root');
      <>
      <img src = {cardInfo.imageURL} alt="" />
      <h6 className = "category">{cardInfo.category} </h6>
-     <span className = "date">{cardInfo.date}</span>
+     <span className = "date">{cardInfo.date.getDate()}</span>
      <h2 className = "heading">{cardInfo.title}</h2>
      <h4 className = "subheading">{cardInfo.subTitle}</h4>
      <p className = "description">{cardInfo.description}</p>
