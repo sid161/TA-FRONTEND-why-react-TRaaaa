@@ -65,51 +65,28 @@ let cardInfo = {
 
 let root = document.querySelector('#root');
 
-// function Article(props){
-//     console.log(props);
-//     return(
-//     <>
-//     <img src = {props.articleInfo.imageURL} alt=""/>
-//     <h6 className = "category">{props.articleInfo.category} </h6>
-//     <span className = "date">{props.articleInfo.date.getDate()}</span>
-//     <h2 className = "heading">{props.articleInfo.title}</h2>
-//     <h4 className = "subheading">{props.articleInfo.subTitle}</h4>
-//     <p className = "description">{props.articleInfo.description}</p>
-//     <span className = "comments">{props.articleInfo.comments}</span>
-//     </>
-//     )
-// }
-
-// function Articles(){
-//     return articles.map(article => <Article articleInfo = {article}/>)
-// }
-
-// ReactDOM.render(<Articles />,root)
-
-
-
-function Article(props) {                                        // this for ui
+function Article(props){
+    console.log(props);
     return(
-        <>
-     <img src = {props.articleInfo.imageURL} alt=""/>
-     <h6 className = "category">{props.articleInfo.category} </h6>
-     <span className = "date">{props.articleInfo.date.getDate()}</span>
-     <h2 className = "heading">{props.articleInfo.title}</h2>
-     <h4 className = "subheading">{props.articleInfo.subTitle}</h4>
-     <p className = "description">{props.articleInfo.description}</p>
-     <span className = "comments">{props.articleInfo.comments}</span>
-     </>
+    <>
+    <img src = {props.articleInfo.imageURL} alt=""/>
+    <h6 className = "category">{props.articleInfo.category} </h6>
+    <span className = "date">{props.articleInfo.date.getDate()}</span>
+    <h2 className = "heading">{props.articleInfo.title}</h2>
+    <h4 className = "subheading">{props.articleInfo.subTitle}</h4>
+    <p className = "description">{props.articleInfo.description}</p>
+    <span className = "comments">{props.articleInfo.comments}</span>
+    </>
     )
 }
 
 function Articles(){
-    return(
-        articles.map(article => <Article articleInfo =  {article} />)
-    )
-    
+    return articles.map(article => <Article articleInfo = {article}/>)
 }
 
-ReactDOM.render(<Articles/>,root);
+ReactDOM.render(<Articles />,root)
+
+
     </script>
     
 </body>
