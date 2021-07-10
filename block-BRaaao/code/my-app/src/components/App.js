@@ -43,7 +43,7 @@ function Articles(){
     <div className = "main">
       {data.map((article) => {
         console.log(article);
-        <Article info =  {article} />
+         return <Article key = {article.publishedAt} info =  {article} />
       })}
     </div>
     </>
