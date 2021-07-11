@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
@@ -13,23 +14,39 @@
     <div id="root"></div>
     <script type="text/babel">
     let root = document.querySelector('#root');
-    function Button1(){
+    function Button1(props){
         return(
-            <button label = "Button"></button>
+            <button className = "button-large">{props.label}</button>
         )
     }
 
-    function Button2(){
+    function Button2(props){
         return(
-            <button onClick = {() => {
+            <button type= {props.type} size = {props.size}  onClick = {() => {
                 alert("you clicked me");
             }}></button>
         )
     }
 
+    // function Button3(props){
+    //     return(
+    //         <button {props.type}  {props.medium} label = "Click Med"></button>
+    //     )
+    // }
+
+    function App(){
+        return(
+            <>
+            <Button2 type = "secondary" size = "" />
+            </>
+        )
+    }
 
 
-    ReactDOM.render(<><Button1/> <Button2/></>, root)
+
+
+
+    ReactDOM.render(<App/>, root)
 
 
 
