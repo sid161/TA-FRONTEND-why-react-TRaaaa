@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type = "text/babel">
+
+    function First(){
+        return <button onClick = {() => {
+            alert("you clicked me")
+        }}>Click me</button>
+    }
+
+    function Second(){
+        return <button onClick = {() => {
+            alert("To learn React use https://reactjs.org");
+            alert("React and ReactDOM works together");
+            alert("Babel helps in writing JSX")
+        }} >
+            
+            </button>
+    }
+
+    function Third(){
+        let names = ["Arya", "Suresh","ram"]
+        return names.map(name => <button onClick = {() =>{
+            alert(`Hello ${name}`);
+        }}>{name}</button>)
+    }
+
+    let fruits = [
+  { id: 'apple', value: '🍎 apple' },
+  { id: 'orange', value: '🍊 orange' },
+  { id: 'grape', value: '🍇 grape' },
+  { id: 'pear', value: '🍐 pear' },
+];
+
+function Fourth(){
+    return fruits.map(fruit => <button key = {fruit.id} onClick = {() => {
+        alert(fruit.value)
+    }}>{fruit.value}</button>)
+}
+
+function Heading(){
+ return (
+ <h1 className = "heading"> Hello React</h1>
+ )
+}
+
+function Input(){
+return(
+<input type="checkbox" placeholder="What are you learning"/>
+)
+}
+
+function Preference(){
+return(
+<>
+<div>
+	<div className = "preference">
+		<label for= "cheese"></label>
+		<input type = "checkbox" name= "cheese" id="cheese"/>
+	</div>
+	<div className = "preference">
+		<label for= "peas"></label>
+		<input type = "checkbox" name= "peas" id="peas"/>
+	</div>
+	<h2>List of numbers </h2>
+	<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+  </ul>
+</div>
+</>
+)
+}
+
+
+
+
+ReactDOM.render(<><First/><Second/><Third/> <Fourth/> <Heading/> <Input/> <Preference/></>,document.getElementById('root'));
+    </script>
+    
+</body>
+</html>
