@@ -4,11 +4,11 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "t"
+    "start": "npm"
   },
   "author": "AltCampus",
   "license": "GNU GPL V3",
   "dependencies": {
-    "jest": "^26.0.1"
+   
   }
 }
