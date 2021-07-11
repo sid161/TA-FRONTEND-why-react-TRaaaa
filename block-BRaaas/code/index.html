@@ -49,10 +49,45 @@ function Fourth(){
     }}>{fruit.value}</button>)
 }
 
+function Heading(){
+ return (
+ <h1 className = "heading"> Hello React</h1>
+ )
+}
+
+function Input(){
+return(
+<input type="checkbox" placeholder="What are you learning"/>
+)
+}
+
+function Preference(){
+return(
+<>
+<div>
+	<div className = "preference">
+		<label for= "cheese"></label>
+		<input type = "checkbox" name= "cheese" id="cheese"/>
+	</div>
+	<div className = "preference">
+		<label for= "peas"></label>
+		<input type = "checkbox" name= "peas" id="peas"/>
+	</div>
+	<h2>List of numbers </h2>
+	<ul>
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+  </ul>
+</div>
+</>
+)
+}
 
 
 
-ReactDOM.render(<><First/><Second/><Third/> <Fourth/></>,document.getElementById('root'));
+
+ReactDOM.render(<><First/><Second/><Third/> <Fourth/> <Heading/> <Input/> <Preference/></>,document.getElementById('root'));
     </script>
     
 </body>
