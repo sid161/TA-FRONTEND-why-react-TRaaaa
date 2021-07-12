@@ -1,0 +1,21 @@
+ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li{
+    width: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.color--box{
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
+}
+
+.color-info{
+    display: flex;
+    justify-content: space-between;
+}
