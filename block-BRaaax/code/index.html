@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    let root = document.querySelector('#root');
+    function Button1(props){
+        return(
+            <button className = "button-large">{props.label}</button>
+        )
+    }
+
+    function Button2(props){
+        return(
+            <button type= {props.type} size = {props.size}  onClick = {() => {
+                alert("you clicked me");
+            }}></button>
+        )
+    }
+
+    // function Button3(props){
+    //     return(
+    //         <button {props.type}  {props.medium} label = "Click Med"></button>
+    //     )
+    // }
+
+    function App(){
+        return(
+            <>
+            <Button2 type = "secondary" size = "" />
+            </>
+        )
+    }
+
+
+
+
+
+    ReactDOM.render(<App/>, root)
+
+
+
+
+    </script>
+    
+</body>
+</html>
